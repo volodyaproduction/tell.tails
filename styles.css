@@ -1,0 +1,65 @@
+/* Styles for the landing page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Установлен шрифт Arial */
+    overflow: hidden; /* Убираем прокрутку */
+}
+
+.hero {
+    background-image: url('sea-yacht.jpg'); /* Замените на путь к вашему изображению */
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed; /* Статичный фон */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative; /* Добавлено для позиционирования */
+}
+
+/* Style for the triangle */
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid white;
+}
+
+/* Animation for the bird */
+.bird {
+    position: absolute; /* Позиционирование для анимации */
+    width: 50px; /* Ширина чайки */
+    height: 50px; /* Высота чайки */
+    animation: fly 10s linear infinite; /* Анимация полета */
+}
+
+@keyframes fly {
+    0% { transform: translate(0, 0) rotate(0deg); } /* Начальная позиция */
+    25% { transform: translate(100px, -50px) rotate(90deg); } /* Полет вправо и вверх */
+    50% { transform: translate(0, -100px) rotate(180deg); } /* Полет влево */
+    75% { transform: translate(-100px, -50px) rotate(270deg); } /* Полет влево и вниз */
+    100% { transform: translate(0, 0) rotate(360deg); } /* Возврат в начальную позицию */
+}
+
+/* Animation for the yacht */
+.yacht {
+    animation: float 10s linear infinite; /* Анимация плавания */
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); } /* Начальная позиция */
+    25% { transform: translate(100px, 50px); } /* Плавание вправо и вниз */
+    50% { transform: translate(0, 100px); } /* Плавание вниз */
+    75% { transform: translate(-100px, 50px); } /* Плавание влево и вниз */
+    100% { transform: translate(0, 0); } /* Возврат в начальную позицию */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    text-align: center;
+} 
