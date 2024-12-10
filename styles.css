@@ -29,19 +29,16 @@ body {
     position: absolute;
     width: 30px;
     height: 30px;
-    animation: fly 6s ease-in-out infinite;
+    animation: fly 6s linear infinite;
     transform-origin: center;
 }
 
 @keyframes fly {
-    0% { transform: translate(-150px, 0) rotate(-5deg); }
-    15% { transform: translate(-100px, -20px) rotate(0deg); }
-    30% { transform: translate(-50px, -40px) rotate(5deg); }
-    45% { transform: translate(0, -50px) rotate(0deg); }
-    60% { transform: translate(50px, -40px) rotate(-5deg); }
-    75% { transform: translate(100px, -20px) rotate(0deg); }
-    90% { transform: translate(150px, 0) rotate(5deg); }
-    100% { transform: translate(-150px, 0) rotate(-5deg); }
+    0% { transform: translate(-100px, 0) rotate(0deg) scale(1); }
+    25% { transform: translate(0, -100px) rotate(90deg) scale(0.8); }
+    50% { transform: translate(100px, 0) rotate(180deg) scale(1); }
+    75% { transform: translate(0, 100px) rotate(270deg) scale(0.8); }
+    100% { transform: translate(-100px, 0) rotate(360deg) scale(1); }
 }
 
 /* Animation for the yacht */
