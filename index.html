@@ -8,22 +8,61 @@
 </head>
 <body>
     <div class="hero">
-        <div class="triangle"></div>
-        <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" class="background-svg">
+        <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" class="background-svg">
             <rect width="100%" height="100%" fill="#87CEEB" /> <!-- Sky -->
             <ellipse cx="400" cy="300" rx="400" ry="100" fill="#1E90FF" /> <!-- Water -->
-            <polygon points="300,250 350,150 400,250" fill="#FFFFFF" class="yacht" /> <!-- Yacht -->
-            <polygon points="350,150 370,130 390,150" fill="#FF6347" class="sail" /> <!-- Yacht sail -->
-            <path d="M 200 100 Q 220 80, 240 100 Q 260 120, 280 100" fill="none" stroke="white" stroke-width="2" class="bird" /> <!-- Seagull -->
+            <g class="yacht">
+                <polygon points="300,250 350,150 400,250" fill="#FFFFFF" /> <!-- Yacht -->
+                <polygon points="350,150 370,130 390,150" fill="#FF6347" /> <!-- Yacht sail -->
+            </g>
+            <path d="M 200 100 Q 220 80, 240 100 Q 260 120, 280 100" 
+                  fill="none" 
+                  stroke="white" 
+                  stroke-width="2" 
+                  class="bird" /> <!-- Seagull -->
         </svg>
-        <h1>Welcome to our website!</h1>
-        <p>Dive into the world of sea adventures.</p>
     </div>
     <footer>
-        <h2>Contact Information</h2>
-        <p>Office in Sydney</p>
-        <p>Phone: +61 2 1234 5678</p>
-        <p>Email: info@example.com</p>
+        <div class="footer-description">
+            Яхтенная движуха от Аси и Кати
+        </div>
+        <a href="https://www.instagram.com/tell.tails/" class="instagram-link">
+            📸 tell.tails
+        </a>
     </footer>
+
+    <script>
+    // Обновляем скрипт зумирования
+    const svg = document.querySelector('.background-svg');
+    let scale = 1;
+    const SCALE_STEP = 0.1;
+    const MAX_SCALE = 3;
+    const MIN_SCALE = 0.5;
+
+    // Функция для обновления масштаба
+    function updateScale(newScale) {
+        if (newScale !== scale) {
+            scale = newScale;
+            const translateX = -50 * scale;
+            const translateY = -50 * scale;
+            svg.style.transform = `translate(${translateX}%, ${translateY}%) scale(${scale})`;
+        }
+    }
+
+    // Обработка колесика мыши для зума
+    window.addEventListener('wheel', (e) => {
+        if (e.ctrlKey) {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -SCALE_STEP : SCALE_STEP;
+            const newScale = Math.min(Math.max(scale + delta, MIN_SCALE), MAX_SCALE);
+            updateScale(newScale);
+        }
+    }, { passive: false });
+
+    // Добавляем обработку двойного клика для сброса масштаба
+    svg.addEventListener('dblclick', () => {
+        updateScale(1);
+    });
+    </script>
 </body>
 </html> 

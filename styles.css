@@ -6,17 +6,13 @@ body {
 }
 
 .hero {
-    background-image: url('sea-yacht.jpg'); /* Замените на путь к вашему изображению */
     height: 100vh;
-    background-size: cover;
-    background-attachment: fixed; /* Статичный фон */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    text-align: center;
-    position: relative; /* Добавлено для позиционирования */
+    background-color: #87CEEB;
+    overflow: visible;
+    position: relative;
 }
 
 /* Style for the triangle */
@@ -30,36 +26,90 @@ body {
 
 /* Animation for the bird */
 .bird {
-    position: absolute; /* Позиционирование для анимации */
-    width: 50px; /* Ширина чайки */
-    height: 50px; /* Высота чайки */
-    animation: fly 10s linear infinite; /* Анимация полета */
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    animation: fly 6s ease-in-out infinite;
+    transform-origin: center;
 }
 
 @keyframes fly {
-    0% { transform: translate(0, 0) rotate(0deg); } /* Начальная позиция */
-    25% { transform: translate(100px, -50px) rotate(90deg); } /* Полет вправо и вверх */
-    50% { transform: translate(0, -100px) rotate(180deg); } /* Полет влево */
-    75% { transform: translate(-100px, -50px) rotate(270deg); } /* Полет влево и вниз */
-    100% { transform: translate(0, 0) rotate(360deg); } /* Возврат в начальную позицию */
+    0% { transform: translate(-150px, 0) rotate(-5deg); }
+    15% { transform: translate(-100px, -20px) rotate(0deg); }
+    30% { transform: translate(-50px, -40px) rotate(5deg); }
+    45% { transform: translate(0, -50px) rotate(0deg); }
+    60% { transform: translate(50px, -40px) rotate(-5deg); }
+    75% { transform: translate(100px, -20px) rotate(0deg); }
+    90% { transform: translate(150px, 0) rotate(5deg); }
+    100% { transform: translate(-150px, 0) rotate(-5deg); }
 }
 
 /* Animation for the yacht */
-.yacht {
-    animation: float 10s linear infinite; /* Анимация плавания */
+.yacht, .sail {
+    transform-origin: center;
+    animation: float 10s ease-in-out infinite;
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0); } /* Начальная позиция */
-    25% { transform: translate(100px, 50px); } /* Плавание вправо и вниз */
-    50% { transform: translate(0, 100px); } /* Плавание вниз */
-    75% { transform: translate(-100px, 50px); } /* Плавание влево и вниз */
-    100% { transform: translate(0, 0); } /* Возврат в начальную позицию */
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 10px); }
+    50% { transform: translate(0, 20px); }
+    75% { transform: translate(-50px, 10px); }
+    100% { transform: translate(0, 0); }
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-} 
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.footer-description {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info > * {
+    margin: 0 10px;
+}
+
+/* Обновляем стили для SVG */
+.background-svg {
+    width: 60vmin;
+    height: 60vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.instagram-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.instagram-link:hover {
+    color: #e1e1e1;
+}
+  
