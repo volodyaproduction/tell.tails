@@ -109,4 +109,9 @@ footer {
 .instagram-link:hover {
     color: #e1e1e1;
 }
+
+.instagram-icon {
+    margin-right: 5px;
+    vertical-align: middle;
+}
   
